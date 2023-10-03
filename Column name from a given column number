@@ -1,0 +1,47 @@
+// Column name from a given column number
+// solution
+
+//{ Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+
+// } Driver Code Ends
+
+
+class Solution{
+    public:
+    string colName (long long int n)
+    {
+        // your code here
+        string ans="";
+        while(n){
+            long long int m=n%26;
+            n=n/26;
+            if(m==0){
+                ans= ans+'Z';
+                n--;
+            }
+            else{
+                char c='A'+ m-1;
+                ans= ans+c;
+            }
+        }
+        // here reversing string kyuki jab ham string me store kr rhe to wha pe baad ki value phle store ho rhe hai isliye last me r
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
+};
+
+//{ Driver Code Starts.
+int main()
+{
+    int t; cin >> t;
+    while (t--)
+	{
+		long long int n; cin >> n;
+		Solution ob;
+		cout << ob.colName (n) << '\n';
+	}
+}
+
+// } Driver Code Ends
